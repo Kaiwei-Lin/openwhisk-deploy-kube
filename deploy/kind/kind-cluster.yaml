@@ -24,3 +24,9 @@ nodes:
     - hostPort: 31001
       containerPort: 31001
 - role: worker
+- role: worker
+- role: worker
+- role: worker
+- role: worker
+
+

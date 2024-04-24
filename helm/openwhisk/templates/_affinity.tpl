@@ -90,7 +90,7 @@ nodeAffinity:
   requiredDuringSchedulingIgnoredDuringExecution:
     nodeSelectorTerms:
     - matchExpressions:
-      - key: openwhisk-role
+      - key: openwhisk-role-invoker
         operator: In
         values:
         - {{ .Values.affinity.invokerNodeLabel }}

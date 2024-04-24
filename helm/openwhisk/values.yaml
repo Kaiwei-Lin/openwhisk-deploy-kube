@@ -130,7 +130,7 @@ whisk:
         retentionBytes: ""
         retentionMs: ""
   containerPool:
-    userMemory: "2048m"
+    userMemory: "4096m"
   runtimes: "runtimes.json"
   durationChecker:
     timeWindow: "1 d"
@@ -272,7 +272,7 @@ controller:
 
 # Scheduler configurations
 scheduler:
-  enabled: false
+  enabled: true
   imageName: "openwhisk/scheduler"
   imageTag: "ef725a6"
   imagePullPolicy: "IfNotPresent"
@@ -330,8 +330,8 @@ etcd:
 
 # Invoker configurations
 invoker:
-  imageName: "openwhisk/invoker"
-  imageTag: "ef725a6"
+  imageName: "kaiweilin/openwhisk-invoker"
+  imageTag: "1.2.0"
   imagePullPolicy: "IfNotPresent"
   restartPolicy: "Always"
   runtimeDeleteTimeout: "30 seconds"
@@ -356,7 +356,7 @@ invoker:
           options: ""
     kubernetes:
       isolateUserActions: true
-      replicaCount: 1
+      replicaCount: 5
 
 # API Gateway configurations
 apigw:
@@ -437,7 +437,7 @@ providers:
   # CouchDB instance used by all enabled providers to store event/configuration data.
   db:
     external: false
-    # Define the rest of these values if you are using external couchdb instance
+    # Define the rest of these values if you are using external ouchdb instance
     host: "10.10.10.10"
     port: 5984
     protocol: "http"
@@ -467,10 +467,13 @@ providers:
     restartPolicy: "Always"
     apiPort: 8080
     dbPrefix: "kp"
+    persistence:
+       size: 1Gi
 
 busybox:
   imageName: "busybox"
   imageTag: "latest"
+  imagePullPolicy: "IfNotPresent"
 
 
 # Used to define pod affinity and anti-affinity for the Kubernetes scheduler.
