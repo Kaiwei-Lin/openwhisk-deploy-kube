@@ -17,6 +17,8 @@
 #
 -->
 
+以下是官方说明文档，步骤基本都按官方文档来。[写了一个补充说明](说明.md)
+
 # OpenWhisk Deployment on Kubernetes
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
